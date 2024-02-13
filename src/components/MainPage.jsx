@@ -1,12 +1,17 @@
-import React from 'react'
-import Navbar from './Navbar'
+import React, { useState } from 'react';
+import Navbar from './Navbar';
+import Weather from './Weather';
 
-const MainPage = () => {
-    return ( 
-        <div className="bg-black border-white w-3/4 h-3/4 text-white ">
-            <Navbar/>
+function App() {
+    const [weatherData, setWeatherData] = useState(null);
+    return (
+        <div className="w-full h-screen bg-red-300  flex justify-center items-center">
+            <div className="bg-black border-white w-3/4 h-3/4  flex">
+                <Navbar setWeatherData={setWeatherData} />
+                <Weather weatherData={weatherData} />
+            </div>
         </div>
-     );
+    );
 }
 
-export default MainPage;
+export default App;
